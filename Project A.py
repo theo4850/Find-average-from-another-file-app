@@ -22,11 +22,27 @@ else:
     avg_real = round(avg, 3)
     stdev = standard_deviation(datalist)
     stdev_real = round(stdev, 3)
-    with open('outputdata.txt', 'w') as od:
-        Line = 'Μέσος όρος = '+str(avg_real)+'\n'
-        od.write(Line)
-    with open('outputdata.txt', 'a') as ot:
-        Line2 = 'Τυπική απόκλειση = '+str(stdev_real)
-        ot.write(Line2)
-        
-        
+    print('Θέλετε να εμφανιστούν τα αποτελέσματα, να εισαχθούν σε ξεχωριστό αρχείο ή και τα δύο;')
+    select = input('Γράψτε 1 για την πρώτη επιλογή, 2 για την δεύτερη και 3 για την τρίτη: ')
+    if select == 1:
+        print('Μέσος όρος: ', avg_real, '/n', 'Τυπική απόκλειση: ', stdev_real)
+    elif select == 2:
+        with open('outputdata.txt', 'w') as od:
+            Line = 'Μέσος όρος = '+str(avg_real)+'\n'
+            od.write(Line)
+        with open('outputdata.txt', 'a') as ot:
+            Line2 = 'Τυπική απόκλειση = '+str(stdev_real)
+            ot.write(Line2)
+    elif select == 3:
+        print('Μέσος όρος: ', avg_real, '/n', 'Τυπική απόκλειση: ', stdev_real)
+        try:
+            with open('outputdata.txt', 'w') as od:
+                Line = 'Μέσος όρος = '+str(avg_real)+'\n'
+                od.write(Line)
+            with open('outputdata.txt', 'a') as ot:
+                Line2 = 'Τυπική απόκλειση = '+str(stdev_real)
+                ot.write(Line2)
+        except Exception as error:
+            print(error)
+        else:
+            print('Τα αποτελέσματα εισήχθησαν επιτυχώς σε ξεχωριστό αρχείο.')
