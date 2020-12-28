@@ -1,16 +1,8 @@
 import statistics as st
+import Mean
+import Standard_Dev
 
 z = input('Εισάγετε το όνομα του αρχείου που θέλετε να ανοίξετε(μαζί με την txt κατάληξη): ')
-
-def average(dlist):
-    numlist = [float(i) for i in dlist]
-    av = st.mean(numlist)
-    return av
-
-def standard_deviation(dlist):
-    numlist = [float(i) for i in dlist]
-    std = st.stdev(numlist)
-    return std
 
 try:
     with open(z, 'r') as id:
